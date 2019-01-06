@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package notes;
+
+service NotesService {
+    rpc List (Empty) returns (NotesList){} // This service takes empty message as input and returns Notes list
+}
+
+message Note {
+    string id=1;
+    string title =2;
+    string content = 3;
+}
+
+message Empty{}
+
+message NotesList{
+    repeated Note notes = 1; // repeated means field is of a type List or Array
+}
