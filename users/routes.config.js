@@ -1,7 +1,7 @@
 const usercontroller = require('./controllers/users.controller');
 
 exports.routesConfig = function(app) {
-    app.get('/notes', [
+    app.get('/users', [
         usercontroller.list
     ]);
 }

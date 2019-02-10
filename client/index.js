@@ -2,8 +2,11 @@ const express = require('express');
 const app = express();
 
 const userroutes = require('../users/routes.config');
-const config = require('../common/config/env.config');
+const environment = process.env.environment || 'dev';
+const config = require('../common/config/env.config')[environment];
 const bodyparser = require('body-parser');
+
+
 
 app.use(function(req, res, next){
     res.header('Access-Control-Allow-Origin', '*');
@@ -20,6 +23,7 @@ app.use(function(req, res, next){
 
 app.use(bodyparser.json());
 userroutes.routesConfig(app);
+
 
 app.listen(config.port, function(){
     console.log('app listening', config.port);

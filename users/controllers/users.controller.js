@@ -1,13 +1,13 @@
 const grpc = require('grpc');
 
-const proto = grpc.load('protos/notes.proto');
+const proto = grpc.load('protos/users.proto');
 
-const client = new proto.notes.NotesService('localhost:8081', grpc.credentials.createInsecure());
+const client = new proto.users.UsersService('192.168.1.123:8081', grpc.credentials.createInsecure());
 
 exports.list = (req, res) =>{
-    client.list({}, (error, notes) => {
+    client.listUsers({}, (error, users) => {
         if(!error){
-            res.status(200).send(notes);
+            res.status(200).send(users);
         }else{
             console.log(error);
         }
