@@ -26,6 +26,6 @@ node server - This willl start the gRPC server and listens at 8081.
 
 node client - This will start the REST client and listens at 8082.
 
-Open a web browser and enter http://localhost:8082/notes to check the result.
+Open a web browser and enter http://localhost:8082/users to check the result.
 
 
